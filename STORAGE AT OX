@@ -1,0 +1,10 @@
+Where is a deployed contract stored in Ethereum? Comment on the different gas costs for a) deploying a contract, b) calling a function, and c) storing an address.
+
+An Ethereum address is a unique 160-bit (20-byte) identifier used by both externally owned accounts (EOAs) and contract accounts to send and receive ETH or interact with smart contracts. For EOAs, this address is derived from the user’s private key, 
+which is used to sign transactions, ensuring secure interactions on the network.
+
+A contract address is generated when a smart contract is deployed, derived from the deploying account's address and nonce. Unlike EOAs, contract accounts do not have private keys but can interact with other addresses, send ETH, and call functions, 
+allowing them to operate autonomously within the Ethereum ecosystem.
+
+Contract storage refers to the internal memory locations (storage slots) within the Ethereum Virtual Machine (EVM), where a contract's state variables are stored. These storage slots, such as "STORAGE AT 0x...", are separate from the contract's 
+address and are used to maintain the contract’s data, with each slot being a 32-byte (256-bit) location.
