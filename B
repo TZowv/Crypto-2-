@@ -1,0 +1,23 @@
+Where is a deployed contract stored in Ethereum? Comment on the different gas costs for a) deploying a contract, b) calling a function, and c) storing an address.
+
+
+In Ethereum, a deployed contract is stored on the blockchain within the Ethereum Virtual Machine (EVM). Specifically, the contract’s bytecode and storage are located at a unique Ethereum address generated upon deployment. 
+This address holds the contract's code and state, allowing interaction through function calls and transactions. 
+The contract’s bytecode is stored permanently on-chain at a unique address.
+Deploying a contract is one of the most expensive operations because the EVM needs to store the contract's bytecode and initialize its state.
+
+Factors: The gas cost depends on the size and complexity of the contract (larger contracts with more functions cost more).
+Range: Simple contracts may cost around 200,000 - 1,500,000 gas or more depending on the logic and storage requirements. If the cost to deploy 
+
+Read-only functions (view or pure): These functions do not modify the blockchain, so they do not consume gas when called externally by another contract. However, they consume gas if called via a transaction.
+State-modifying functions: Calling functions that change the state (e.g., modifying a variable) incurs gas costs based on the computation and the data changes.
+Range: Costs vary widely, from a few 10,000 - 100,000 gas for simple updates, to more for complex computations and large data changes.
+
+Where Stored: An Ethereum address is stored as a 20-byte value in the contract’s storage.
+Gas Cost: Storing an address in contract storage is similar to storing any other fixed-size data type like an integer. Storing or modifying a storage slot (32 bytes) costs 20,000 gas for writing a new value.
+Range: Around 20,000 gas for storing an address, since it's just a 160-bit (20-byte) value.
+
+The Summary of Gas Costs:
+Contract Deployment: Expensive (200,000 - 1,500,000 gas or more depending on size).
+Function Call: Moderate to high, depending on whether the function modifies the state (10,000 - 100,000+ gas).
+Storing an Address: Fixed cost of around 20,000 gas for storing new data in a 32-byte slot.
